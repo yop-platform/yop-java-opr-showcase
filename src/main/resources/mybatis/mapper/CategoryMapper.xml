@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "mybatis-3-mapper.dtd">
+<mapper namespace="com.yeepay.demo.shop.modules.product.repository.CategoryMapper">
+
+    <select id="select" resultType="com.yeepay.demo.shop.modules.product.entity.Category">
+        SELECT category_id,category_name,category_image_src FROM category
+        <where>
+            <if test="category_name != null">category_name LIKE concat('%',#{category_name},'%')</if>
+        </where>
+        <if test="pageUtil != null">
+            LIMIT #{pageUtil.pageStart},#{pageUtil.count}
+        </if>
+    </select>
+
+    <select id="selectOne" parameterType="int" resultType="com.yeepay.demo.shop.modules.product.entity.Category">
+        SELECT category_id,category_name,category_image_src FROM category
+        <where>
+            category_id = #{category_id}
+        </where>
+    </select>
+
+    <select id="selectTotal" resultType="int">
+        SELECT COUNT(category_id) FROM category
+        <where>
+            <if test="category_name != null">category_name LIKE concat('%',#{category_name},'%')</if>
+        </where>
+    </select>
+</mapper>

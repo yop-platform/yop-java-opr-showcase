@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "classpath:/common-dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yeepay.demo.shop.modules.order.repository.RefundOrderDao" >
+	<!-- 返回实体map -->
+	<resultMap id="RefundOrderEntity" type="com.yeepay.demo.shop.modules.order.entity.RefundOrder">
+		<result column="ID" property="id"/>
+		<result column="MERCHANT_NO" property="merchantNo"/>
+		<result column="PAY_ORDER_ID" property="payOrderId"/>
+		<result column="REFUND_REQUEST_ID" property="refundRequestId"/>
+		<result column="UNIQUE_REFUND_NO" property="uniqueRefundNo"/>
+		<result column="PAY_UNIQUE_ORDER_NO" property="payUniqueOrderNo"/>
+		<result column="REFUND_AMOUNT" property="refundAmount"/>
+		<result column="REAL_REFUND_AMOUNT" property="realRefundAmount"/>
+		<result column="DESCRIPTION" property="description"/>
+		<result column="MEMO" property="memo"/>
+		<result column="REFUND_ACCOUNT_TYPE" property="refundAccountType"/>
+		<result column="NOTIFY_URL" property="notifyUrl"/>
+		<result column="ERROR_CODE" property="errorCode"/>
+		<result column="ERROR_MSG" property="errorMsg"/>
+		<result column="STATUS" property="status"/>
+		<result column="REFUND_SUCCESS_DATE" property="refundSuccessDate"/>
+		<result column="CREATE_TIME" property="createTime"/>
+		<result column="LAST_UPDATE_TIME" property="lastUpdateTime"/>
+	</resultMap>
+	
+	<insert id="insert" >
+		INSERT INTO YD_REFUND_ORDER  (id,	MERCHANT_NO ,	PAY_ORDER_ID ,	REFUND_REQUEST_ID ,	UNIQUE_REFUND_NO ,	PAY_UNIQUE_ORDER_NO ,	REFUND_AMOUNT ,	REAL_REFUND_AMOUNT ,	DESCRIPTION ,	MEMO ,	REFUND_ACCOUNT_TYPE ,	NOTIFY_URL ,	ERROR_CODE ,	ERROR_MSG ,	STATUS ,	REFUND_SUCCESS_DATE ,	CREATE_TIME ,	LAST_UPDATE_TIME )
+		VALUES(	null,	#{merchantNo} ,	#{payOrderId} ,	#{refundRequestId} ,	#{uniqueRefundNo} ,	#{payUniqueOrderNo} ,	#{refundAmount} ,	#{realRefundAmount} ,	#{description} ,	#{memo} ,	#{refundAccountType} ,	#{notifyUrl} ,	#{errorCode} ,	#{errorMsg} ,	#{status} ,	#{refundSuccessDate} ,	#{createTime} ,	#{lastUpdateTime} )
+	</insert>
+		
+	<update id="update" >
+		UPDATE YD_REFUND_ORDER
+		<set>
+			<if test="null != merchantNo"> MERCHANT_NO = #{merchantNo} , </if>
+			<if test="null != payOrderId"> PAY_ORDER_ID = #{payOrderId} , </if>
+			<if test="null != refundRequestId"> REFUND_REQUEST_ID = #{refundRequestId} , </if>
+			<if test="null != uniqueRefundNo"> UNIQUE_REFUND_NO = #{uniqueRefundNo} , </if>
+			<if test="null != payUniqueOrderNo"> PAY_UNIQUE_ORDER_NO = #{payUniqueOrderNo} , </if>
+			<if test="null != refundAmount"> REFUND_AMOUNT = #{refundAmount} , </if>
+			<if test="null != realRefundAmount"> REAL_REFUND_AMOUNT = #{realRefundAmount} , </if>
+			<if test="null != description"> DESCRIPTION = #{description} , </if>
+			<if test="null != memo"> MEMO = #{memo} , </if>
+			<if test="null != refundAccountType"> REFUND_ACCOUNT_TYPE = #{refundAccountType} , </if>
+			<if test="null != notifyUrl"> NOTIFY_URL = #{notifyUrl} , </if>
+			<if test="null != errorCode"> ERROR_CODE = #{errorCode} , </if>
+			<if test="null != errorMsg"> ERROR_MSG = #{errorMsg} , </if>
+			<if test="null != status"> STATUS = #{status} , </if>
+			<if test="null != refundSuccessDate"> REFUND_SUCCESS_DATE = #{refundSuccessDate} , </if>
+			<if test="null != createTime"> CREATE_TIME = #{createTime} , </if>
+			<if test="null != lastUpdateTime"> LAST_UPDATE_TIME = #{lastUpdateTime} , </if>
+		</set>
+		where
+			<if test="null != id">  ID = #{id} </if>
+	</update>
+	
+ 	<delete id="delete" parameterType="java.lang.String" >
+		DELETE 
+ 		FROM YD_REFUND_ORDER 
+ 		where  ID = #{id}
+ 	</delete>
+ 	
+ 	<select id="get" parameterType="java.lang.String" resultMap="RefundOrderEntity">
+		select * 
+		FROM YD_REFUND_ORDER 
+ 		where  ID = #{id} 
+	</select>
+	
+	<select id="getAll" resultMap="RefundOrderEntity">
+		select * from YD_REFUND_ORDER
+	</select>
+	
+	<select id="query" resultMap="RefundOrderEntity">
+		select * from YD_REFUND_ORDER
+		where 1=1 
+			<if test="null != merchantNo"> and MERCHANT_NO = #{merchantNo}  </if>
+			<if test="null != payOrderId"> and PAY_ORDER_ID = #{payOrderId}  </if>
+			<if test="null != refundRequestId"> and REFUND_REQUEST_ID = #{refundRequestId}  </if>
+			<if test="null != uniqueRefundNo"> and UNIQUE_REFUND_NO = #{uniqueRefundNo}  </if>
+			<if test="null != payUniqueOrderNo"> and PAY_UNIQUE_ORDER_NO = #{payUniqueOrderNo}  </if>
+			<if test="null != refundAmount"> and REFUND_AMOUNT = #{refundAmount}  </if>
+			<if test="null != realRefundAmount"> and REAL_REFUND_AMOUNT = #{realRefundAmount}  </if>
+			<if test="null != description"> and DESCRIPTION = #{description}  </if>
+			<if test="null != memo"> and MEMO = #{memo}  </if>
+			<if test="null != refundAccountType"> and REFUND_ACCOUNT_TYPE = #{refundAccountType}  </if>
+			<if test="null != notifyUrl"> and NOTIFY_URL = #{notifyUrl}  </if>
+			<if test="null != errorCode"> and ERROR_CODE = #{errorCode}  </if>
+			<if test="null != errorMsg"> and ERROR_MSG = #{errorMsg}  </if>
+			<if test="null != status"> and STATUS = #{status}  </if>
+			<if test="null != refundSuccessDate"> and REFUND_SUCCESS_DATE = #{refundSuccessDate}  </if>
+			<if test="null != createTime"> and CREATE_TIME = #{createTime}  </if>
+			<if test="null != lastUpdateTime"> and LAST_UPDATE_TIME = #{lastUpdateTime}  </if>
+	</select>
+
+	<update id="updataOrderToProcssing">
+		update YD_REFUND_ORDER set status = 'PROCESSING', uniqueRefundNo = #{uniqueRefundNo} where refundRequestId = #{refundRequestId}
+	</update>
+
+	<update id="updataOrderToSuccess">
+		update YD_REFUND_ORDER set status = 'SUCCESS', refundSuccessDate = #{refundSuccessDate}, uniqueRefundNo = #{uniqueRefundNo}, realRefundAmount = #{realRefundAmount} where refundRequestId = #{refundRequestId}
+	</update>
+
+	<update id="updataOrderToFail">
+		update YD_REFUND_ORDER set status = 'FAIL', errorCode = #{errorCode}, errorMsg = #{errorMsg}, uniqueRefundNo = #{uniqueRefundNo} where refundRequestId = #{refundRequestId}
+	</update>
+
+	<select id="queryByRefundRequestId" resultMap="RefundOrderEntity">
+		select * from YD_REFUND_ORDER
+		where 1=1
+		<if test="null != refundRequestId"> and REFUND_REQUEST_ID = #{refundRequestId}  </if>
+	</select>
+
+</mapper>
+
+
+
+
+
+
+

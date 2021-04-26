@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "classpath:/common-dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yeepay.demo.shop.modules.order.repository.PayOrderDao" >
+    <!-- 返回实体map -->
+    <resultMap id="PayOrderEntity" type="com.yeepay.demo.shop.modules.order.entity.PayOrder">
+        <result column="ID" property="id"/>
+        <result column="MERCHANT_NO" property="merchantNo"/>
+        <result column="ORDER_ID" property="orderId"/>
+        <result column="ORDER_AMOUNT" property="orderAmount"/>
+        <result column="GOODS_NAME" property="goodsName"/>
+        <result column="FUND_PROCESS_TYPE" property="fundProcessType"/>
+        <result column="NOTIFY_URL" property="notifyUrl"/>
+        <result column="MEMO" property="memo"/>
+        <result column="EXPIRED_TIME" property="expiredTime"/>
+        <result column="REDIRECT_URL" property="redirectUrl"/>
+        <result column="ERROR_CODE" property="errorCode"/>
+        <result column="ERROR_MSG" property="errorMsg"/>
+        <result column="BIZ_SYSTEM_NO" property="bizSystemNo"/>
+        <result column="UNIQUE_ORDER_NO" property="uniqueOrderNo"/>
+        <result column="TOKEN" property="token"/>
+        <result column="STATUS" property="status"/>
+        <result column="PAY_SUCCESS_DATE" property="paySuccessDate"/>
+        <result column="PAY_WAY" property="payWay"/>
+        <result column="CHANNEL" property="channel"/>
+        <result column="CARD_TYPE" property="cardType"/>
+        <result column="BANK_ID" property="bankId"/>
+        <result column="BANK_CARD_NO" property="bankCardNo"/>
+        <result column="MOBILE_PHONE_NO" property="mobilePhoneNo"/>
+        <result column="USER_ID" property="userId"/>
+        <result column="UNION_ID" property="unionId"/>
+        <result column="PRODUCT_ORDER_ID" property="productOrderId"/>
+        <result column="CREATE_TIME" property="createTime"/>
+        <result column="LAST_UPDATE_TIME" property="lastUpdateTime"/>
+        <result column="BANK_ORDER_ID" property="bankOrderId"/>
+        <result column="MERCHANT_FEE" property="merchantFee"/>
+        <result column="CUSTOMER_FEE" property="customerFee"/>
+    </resultMap>
+
+    <insert id="insert">
+        INSERT INTO YD_PAY_ORDER  (	ID ,	MERCHANT_NO ,	ORDER_ID ,	ORDER_AMOUNT ,	GOODS_NAME ,	FUND_PROCESS_TYPE ,	NOTIFY_URL ,	MEMO ,	EXPIRED_TIME ,	REDIRECT_URL ,	ERROR_CODE ,	ERROR_MSG ,	BIZ_SYSTEM_NO ,	UNIQUE_ORDER_NO ,	TOKEN ,	STATUS ,	PAY_SUCCESS_DATE ,	PAY_WAY ,	CHANNEL ,	CARD_TYPE ,	BANK_ID ,	BANK_CARD_NO ,	MOBILE_PHONE_NO ,	USER_ID ,	UNION_ID ,	PRODUCT_ORDER_ID ,	CREATE_TIME ,	LAST_UPDATE_TIME ,	BANK_ORDER_ID ,	MERCHANT_FEE ,	CUSTOMER_FEE )
+        VALUES(	#{id} ,	#{merchantNo} ,	#{orderId} ,	#{orderAmount} ,	#{goodsName} ,	#{fundProcessType} ,	#{notifyUrl} ,	#{memo} ,	#{expiredTime} ,	#{redirectUrl} ,	#{errorCode} ,	#{errorMsg} ,	#{bizSystemNo} ,	#{uniqueOrderNo} ,	#{token} ,	#{status} ,	#{paySuccessDate} ,	#{payWay} ,	#{channel} ,	#{cardType} ,	#{bankId} ,	#{bankCardNo} ,	#{mobilePhoneNo} ,	#{userId} ,	#{unionId} ,	#{productOrderId} ,	#{createTime} ,	#{lastUpdateTime} ,	#{bankOrderId} ,	#{merchantFee} ,	#{customerFee} )
+    </insert>
+
+    <update id="update" >
+        UPDATE YD_PAY_ORDER
+        <set>
+            <if test="null != merchantNo"> MERCHANT_NO = #{merchantNo} , </if>
+            <if test="null != orderId"> ORDER_ID = #{orderId} , </if>
+            <if test="null != orderAmount"> ORDER_AMOUNT = #{orderAmount} , </if>
+            <if test="null != goodsName"> GOODS_NAME = #{goodsName} , </if>
+            <if test="null != fundProcessType"> FUND_PROCESS_TYPE = #{fundProcessType} , </if>
+            <if test="null != notifyUrl"> NOTIFY_URL = #{notifyUrl} , </if>
+            <if test="null != memo"> MEMO = #{memo} , </if>
+            <if test="null != expiredTime"> EXPIRED_TIME = #{expiredTime} , </if>
+            <if test="null != redirectUrl"> REDIRECT_URL = #{redirectUrl} , </if>
+            <if test="null != errorCode"> ERROR_CODE = #{errorCode} , </if>
+            <if test="null != errorMsg"> ERROR_MSG = #{errorMsg} , </if>
+            <if test="null != bizSystemNo"> BIZ_SYSTEM_NO = #{bizSystemNo} , </if>
+            <if test="null != uniqueOrderNo"> UNIQUE_ORDER_NO = #{uniqueOrderNo} , </if>
+            <if test="null != token"> TOKEN = #{token} , </if>
+            <if test="null != status"> STATUS = #{status} , </if>
+            <if test="null != paySuccessDate"> PAY_SUCCESS_DATE = #{paySuccessDate} , </if>
+            <if test="null != payWay"> PAY_WAY = #{payWay} , </if>
+            <if test="null != channel"> CHANNEL = #{channel} , </if>
+            <if test="null != cardType"> CARD_TYPE = #{cardType} , </if>
+            <if test="null != bankId"> BANK_ID = #{bankId} , </if>
+            <if test="null != bankCardNo"> BANK_CARD_NO = #{bankCardNo} , </if>
+            <if test="null != mobilePhoneNo"> MOBILE_PHONE_NO = #{mobilePhoneNo} , </if>
+            <if test="null != userId"> USER_ID = #{userId} , </if>
+            <if test="null != unionId"> UNION_ID = #{unionId} , </if>
+            <if test="null != productOrderId"> PRODUCT_ORDER_ID = #{productOrderId} , </if>
+            <if test="null != createTime"> CREATE_TIME = #{createTime} , </if>
+            <if test="null != lastUpdateTime"> LAST_UPDATE_TIME = #{lastUpdateTime} , </if>
+            <if test="null != bankOrderId"> BANK_ORDER_ID = #{bankOrderId} , </if>
+            <if test="null != merchantFee"> MERCHANT_FEE = #{merchantFee} , </if>
+            <if test="null != customerFee"> CUSTOMER_FEE = #{customerFee} , </if>
+        </set>
+        where
+        <if test="null != id">  ID = #{id} </if>
+    </update>
+
+    <delete id="delete" parameterType="java.lang.String" >
+        DELETE
+        FROM YD_PAY_ORDER
+        where  ID = #{id}
+    </delete>
+
+    <select id="get" parameterType="java.lang.String" resultMap="PayOrderEntity">
+        select *
+        FROM YD_PAY_ORDER
+        where  ID = #{id}
+    </select>
+
+    <select id="getAll" resultMap="PayOrderEntity">
+        select * from YD_PAY_ORDER
+    </select>
+
+    <select id="query" resultMap="PayOrderEntity">
+        select * from YD_PAY_ORDER
+        where 1=1
+        <if test="null != merchantNo"> and MERCHANT_NO = #{merchantNo}  </if>
+        <if test="null != orderId"> and ORDER_ID = #{orderId}  </if>
+        <if test="null != orderAmount"> and ORDER_AMOUNT = #{orderAmount}  </if>
+        <if test="null != goodsName"> and GOODS_NAME = #{goodsName}  </if>
+        <if test="null != fundProcessType"> and FUND_PROCESS_TYPE = #{fundProcessType}  </if>
+        <if test="null != notifyUrl"> and NOTIFY_URL = #{notifyUrl}  </if>
+        <if test="null != memo"> and MEMO = #{memo}  </if>
+        <if test="null != expiredTime"> and EXPIRED_TIME = #{expiredTime}  </if>
+        <if test="null != redirectUrl"> and REDIRECT_URL = #{redirectUrl}  </if>
+        <if test="null != errorCode"> and ERROR_CODE = #{errorCode}  </if>
+        <if test="null != errorMsg"> and ERROR_MSG = #{errorMsg}  </if>
+        <if test="null != bizSystemNo"> and BIZ_SYSTEM_NO = #{bizSystemNo}  </if>
+        <if test="null != uniqueOrderNo"> and UNIQUE_ORDER_NO = #{uniqueOrderNo}  </if>
+        <if test="null != token"> and TOKEN = #{token}  </if>
+        <if test="null != status"> and STATUS = #{status}  </if>
+        <if test="null != paySuccessDate"> and PAY_SUCCESS_DATE = #{paySuccessDate}  </if>
+        <if test="null != payWay"> and PAY_WAY = #{payWay}  </if>
+        <if test="null != channel"> and CHANNEL = #{channel}  </if>
+        <if test="null != cardType"> and CARD_TYPE = #{cardType}  </if>
+        <if test="null != bankId"> and BANK_ID = #{bankId}  </if>
+        <if test="null != bankCardNo"> and BANK_CARD_NO = #{bankCardNo}  </if>
+        <if test="null != mobilePhoneNo"> and MOBILE_PHONE_NO = #{mobilePhoneNo}  </if>
+        <if test="null != userId"> and USER_ID = #{userId}  </if>
+        <if test="null != unionId"> and UNION_ID = #{unionId}  </if>
+        <if test="null != productOrderId"> and PRODUCT_ORDER_ID = #{productOrderId}  </if>
+        <if test="null != createTime"> and CREATE_TIME = #{createTime}  </if>
+        <if test="null != lastUpdateTime"> and LAST_UPDATE_TIME = #{lastUpdateTime}  </if>
+        <if test="null != bankOrderId"> and BANK_ORDER_ID = #{bankOrderId}  </if>
+        <if test="null != merchantFee"> and MERCHANT_FEE = #{merchantFee}  </if>
+        <if test="null != customerFee"> and CUSTOMER_FEE = #{customerFee}  </if>
+    </select>
+    <select id="queryPayOrderByOrderId" resultMap="PayOrderEntity">
+        select * from YD_PAY_ORDER
+        where 1=1
+        and ORDER_ID = #{orderId}
+    </select>
+
+    <select id="queryPayOrderByProductOrderId" resultMap="PayOrderEntity">
+        select * from YD_PAY_ORDER
+        where 1=1
+        <if test="null != productOrderId ">and PRODUCT_ORDER_ID = #{productOrderId}</if>
+        <if test="null != orderId">and ORDER_ID = #{orderId}</if>
+    </select>
+    <select id="queryByYbUniqueOrderNo" resultMap="PayOrderEntity">
+        select * from YD_PAY_ORDER
+        where 1=1
+        <if test="null != uniqueOrderNo"> and UNIQUE_ORDER_NO=#{uniqueOrderNo}</if>
+    </select>
+
+    <update id="updataStatus" >
+        UPDATE YD_PAY_ORDER
+        <set>
+            <if test="null != status"> STATUS = #{status} </if>
+        </set>
+        where
+        <if test="null != orderId"> ORDER_ID = #{orderId}  </if>
+    </update>
+    <update id="updataOrderToSuccess">
+        update YD_PAY_ORDER
+        set status = 'SUCCESS', UNIQUE_ORDER_NO = #{uniqueOrderNo}, PAY_SUCCESS_DATE = #{paySuccessDate},
+        BANK_ORDER_ID = #{bankOrderId}, MERCHANT_FEE = #{merchantFee}, CUSTOMER_FEE = #{customerFee}
+        where ORDER_ID = #{orderId}
+    </update>
+
+    <update id="updataOrderToTimeOut">
+        update YD_PAY_ORDER set status = 'TIME_OUT', UNIQUE_ORDER_NO = #{uniqueOrderNo}, errorMsg = #{errorMsg}
+        where ORDER_ID = #{orderId}
+    </update>
+</mapper>
+
+
+
+
+
+
+

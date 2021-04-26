@@ -2,8 +2,8 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "mybatis-3-mapper.dtd">
-<mapper namespace="com.yeepay.demo.shop.modules.product.repository.ProductMapper">
-    <resultMap id="productMap" type="com.yeepay.demo.shop.modules.product.entity.Product">
+<mapper namespace="com.yeepay.yop.showcase.shop.modules.product.repository.ProductMapper">
+    <resultMap id="productMap" type="com.yeepay.yop.showcase.shop.modules.product.entity.Product">
         <id property="product_id" column="product_id"/>
         <result property="product_name" column="product_name"/>
         <result property="product_title" column="product_title"/>
@@ -13,12 +13,12 @@
         <result property="product_isEnabled" column="product_isEnabled"/>
         <result property="product_sale_count" column="product_sale_count"/>
         <result property="product_review_count" column="product_review_count"/>
-        <association property="product_category" javaType="com.yeepay.demo.shop.modules.product.entity.Category">
+        <association property="product_category" javaType="com.yeepay.yop.showcase.shop.modules.product.entity.Category">
             <id property="category_id" column="product_category_id"/>
         </association>
     </resultMap>
 
-    <insert id="insertOne" parameterType="com.yeepay.demo.shop.modules.product.entity.ProductImage">
+    <insert id="insertOne" parameterType="com.yeepay.yop.showcase.shop.modules.product.entity.ProductImage">
         INSERT into product (product_id,product_name,product_title,product_price,product_sale_price,product_create_date,product_isEnabled,product_category_id)
             VALUES(
             null,
@@ -31,7 +31,7 @@
             #{product.product_category.category_id})
     </insert>
 
-    <update id="updateOne" parameterType="com.yeepay.demo.shop.modules.product.entity.ProductImage">
+    <update id="updateOne" parameterType="com.yeepay.yop.showcase.shop.modules.product.entity.ProductImage">
         UPDATE product
         <set>
             <if test="product.product_name != null">product_name = #{product.product_name},</if>
@@ -159,7 +159,7 @@
         </where>
     </select>
 
-    <select id="selectTitle" resultType="com.yeepay.demo.shop.modules.product.entity.ProductImage">
+    <select id="selectTitle" resultType="com.yeepay.yop.showcase.shop.modules.product.entity.ProductImage">
         SELECT product_id,product_title FROM product
         <where>
             <if test="product != null">

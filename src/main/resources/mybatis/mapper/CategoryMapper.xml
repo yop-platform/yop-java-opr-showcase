@@ -2,9 +2,9 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "mybatis-3-mapper.dtd">
-<mapper namespace="com.yeepay.demo.shop.modules.product.repository.CategoryMapper">
+<mapper namespace="com.yeepay.yop.showcase.shop.modules.product.repository.CategoryMapper">
 
-    <select id="select" resultType="com.yeepay.demo.shop.modules.product.entity.Category">
+    <select id="select" resultType="com.yeepay.yop.showcase.shop.modules.product.entity.Category">
         SELECT category_id,category_name,category_image_src FROM category
         <where>
             <if test="category_name != null">category_name LIKE concat('%',#{category_name},'%')</if>
@@ -14,7 +14,7 @@
         </if>
     </select>
 
-    <select id="selectOne" parameterType="int" resultType="com.yeepay.demo.shop.modules.product.entity.Category">
+    <select id="selectOne" parameterType="int" resultType="com.yeepay.yop.showcase.shop.modules.product.entity.Category">
         SELECT category_id,category_name,category_image_src FROM category
         <where>
             category_id = #{category_id}

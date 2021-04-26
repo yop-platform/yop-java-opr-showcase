@@ -2,16 +2,16 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "mybatis-3-mapper.dtd">
-<mapper namespace="com.yeepay.demo.shop.modules.product.repository.PropertyMapper">
-    <resultMap id="propertyMap" type="com.yeepay.demo.shop.modules.product.entity.Property">
+<mapper namespace="com.yeepay.yop.showcase.shop.modules.product.repository.PropertyMapper">
+    <resultMap id="propertyMap" type="com.yeepay.yop.showcase.shop.modules.product.entity.Property">
         <id property="property_id" column="property_id"/>
         <result property="property_name" column="property_name"/>
-        <association property="property_category" javaType="com.yeepay.demo.shop.modules.product.entity.Category">
+        <association property="property_category" javaType="com.yeepay.yop.showcase.shop.modules.product.entity.Category">
             <id property="category_id" column="property_category_id"/>
         </association>
     </resultMap>
 
-    <insert id="insertOne" parameterType="com.yeepay.demo.shop.modules.product.entity.Property">
+    <insert id="insertOne" parameterType="com.yeepay.yop.showcase.shop.modules.product.entity.Property">
         INSERT into property (property_id,property_name,property_category_id)
             VALUES(
             null,
@@ -29,7 +29,7 @@
         </foreach>
     </insert>
 
-    <update id="updateOne" parameterType="com.yeepay.demo.shop.modules.product.entity.Property">
+    <update id="updateOne" parameterType="com.yeepay.yop.showcase.shop.modules.product.entity.Property">
         UPDATE property
         <set>
             <if test="property.property_name != null">property_name = #{property.property_name}</if>
@@ -71,7 +71,7 @@
         </where>
     </select>
 
-    <select id="selectTotal" resultType="int" parameterType="com.yeepay.demo.shop.modules.product.entity.Property">
+    <select id="selectTotal" resultType="int" parameterType="com.yeepay.yop.showcase.shop.modules.product.entity.Property">
         SELECT property_id,property_name,property_category_id FROM property
         <if test="property != null">
             <where>

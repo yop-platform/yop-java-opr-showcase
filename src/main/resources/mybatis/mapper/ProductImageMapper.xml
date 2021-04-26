@@ -2,17 +2,17 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "mybatis-3-mapper.dtd">
-<mapper namespace="com.yeepay.demo.shop.modules.product.repository.ProductImageMapper">
-    <resultMap id="imageMap" type="com.yeepay.demo.shop.modules.product.entity.ProductImage">
+<mapper namespace="com.yeepay.yop.showcase.shop.modules.product.repository.ProductImageMapper">
+    <resultMap id="imageMap" type="com.yeepay.yop.showcase.shop.modules.product.entity.ProductImage">
         <id property="productImage_id" column="productImage_id"/>
         <result property="productImage_type" column="productImage_type"/>
         <result property="productImage_src" column="productImage_src"/>
-        <association property="productImage_product" javaType="com.yeepay.demo.shop.modules.product.entity.Product">
+        <association property="productImage_product" javaType="com.yeepay.yop.showcase.shop.modules.product.entity.Product">
             <id property="product_id" column="productImage_product_id"/>
         </association>
     </resultMap>
 
-    <insert id="insertOne" parameterType="com.yeepay.demo.shop.modules.product.entity.ProductImage">
+    <insert id="insertOne" parameterType="com.yeepay.yop.showcase.shop.modules.product.entity.ProductImage">
         INSERT into productImage (productImage_id,productImage_type,productImage_src,productImage_product_id)
             VALUES (
             null,
@@ -32,7 +32,7 @@
         </foreach>
     </insert>
 
-    <update id="updateOne" parameterType="com.yeepay.demo.shop.modules.product.entity.ProductImage">
+    <update id="updateOne" parameterType="com.yeepay.yop.showcase.shop.modules.product.entity.ProductImage">
         UPDATE productImage
         <set>
             <if test="productImage.productImage_type != null">productImage_type = #{productImage.productImage_type},

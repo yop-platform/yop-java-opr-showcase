@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "classpath:/common-dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.yeepay.demo.shop.modules.order.repository.RefundOrderDao" >
+<mapper namespace="com.yeepay.yop.showcase.shop.modules.order.repository.RefundOrderDao" >
 	<!-- 返回实体map -->
-	<resultMap id="RefundOrderEntity" type="com.yeepay.demo.shop.modules.order.entity.RefundOrder">
+	<resultMap id="RefundOrderEntity" type="com.yeepay.yop.showcase.shop.modules.order.entity.RefundOrder">
 		<result column="ID" property="id"/>
 		<result column="MERCHANT_NO" property="merchantNo"/>
 		<result column="PAY_ORDER_ID" property="payOrderId"/>

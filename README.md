@@ -7,7 +7,7 @@ YOP OPR 业务，某商城对接易宝收银台的演示
 采用 Springboot + Maven + h2 实现，代码结构如下：
 
 * com.yeepay.demo.dashboard 管理后台
-* com.yeepay.demo.shop 商城
+* com.yeepay.yop.showcase.shop 商城
 * com.yeepay.yop.sdk.service 对接YOP的业务层代码
 
 ## 配置yop相关参数

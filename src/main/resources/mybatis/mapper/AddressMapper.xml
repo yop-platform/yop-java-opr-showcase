@@ -2,11 +2,11 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "mybatis-3-mapper.dtd">
-<mapper namespace="com.yeepay.demo.shop.modules.member.repository.AddressMapper">
-    <resultMap id="address" type="com.yeepay.demo.shop.modules.member.entity.Address">
+<mapper namespace="com.yeepay.yop.showcase.shop.modules.member.repository.AddressMapper">
+    <resultMap id="address" type="com.yeepay.yop.showcase.shop.modules.member.entity.Address">
         <id property="address_areaId" column="address_areaId"/>
         <result property="address_name" column="address_name"/>
-        <association property="address_regionId" javaType="com.yeepay.demo.shop.modules.member.entity.Address">
+        <association property="address_regionId" javaType="com.yeepay.yop.showcase.shop.modules.member.entity.Address">
             <id property="address_areaId" column="address_regionId"/>
         </association>
     </resultMap>

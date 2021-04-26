@@ -5,11 +5,11 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.3.4.RELEASE</version>
+        <version>2.3.10.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
-    <groupId>com.yeepay.g3</groupId>
+    <groupId>com.yeepay.yop.showcase</groupId>
     <artifactId>yop-opr-showcase</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <packaging>war</packaging>
@@ -59,7 +59,7 @@
         <dependency>
             <groupId>com.yeepay.yop.sdk</groupId>
             <artifactId>yop-java-sdk</artifactId>
-            <version>3.3.2</version>
+            <version>4.0.3</version>
         </dependency>
 <!--        <dependency>-->
 <!--            <groupId>com.yeepay.yop.sdk</groupId>-->

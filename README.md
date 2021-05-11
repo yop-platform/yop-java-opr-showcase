@@ -1,4 +1,6 @@
 # yop-opr-showcase
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fyop-platform%2Fyop-java-opr-showcase.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fyop-platform%2Fyop-java-opr-showcase?ref=badge_shield)
+
 
 YOP OPR 业务，某商城对接易宝收银台的演示
 
@@ -46,3 +48,7 @@ http://127.0.0.1:8080/yop-opr-showcase/
 #### 要想后台运行可以使用 setsid 命令
 
 > setsid ./sunny clientid 隧道id &
+
+
+## License
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fyop-platform%2Fyop-java-opr-showcase.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fyop-platform%2Fyop-java-opr-showcase?ref=badge_large)

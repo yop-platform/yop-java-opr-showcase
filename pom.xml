@@ -16,6 +16,7 @@
 
     <properties>
         <java.version>1.8</java.version>
+        <yop-java-sdk.version>4.1.9</yop-java-sdk.version>
     </properties>
 
     <dependencies>
@@ -59,7 +60,7 @@
         <dependency>
             <groupId>com.yeepay.yop.sdk</groupId>
             <artifactId>yop-java-sdk</artifactId>
-            <version>4.0.3</version>
+            <version>${yop-java-sdk.version}</version>
         </dependency>
 <!--        <dependency>-->
 <!--            <groupId>com.yeepay.yop.sdk</groupId>-->
